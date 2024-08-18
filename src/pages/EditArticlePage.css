@@ -1,0 +1,72 @@
+form{
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 30px auto;
+    background-color: white;
+}
+
+form h5{
+    text-align: center;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+button, .btn {
+    border-radius: 35px;
+    margin: 15px;
+}
+
+button, .btn:hover {
+    color: #ffc107;
+}
+
+
+.mb-3 {
+    padding: 10px;
+}
+
+.mb-3 .form-select {
+    border-radius: 35px;
+    border-color: #ffc107;
+    border-style: solid;
+    width: 50%;
+}
+
+.mb-3 .form-select:focus {
+    border: none;
+}
+
+.mb-3 input.form-control {
+    border-radius: 14px;
+    border-color: #ffc107;
+    border-style: solid;
+}
+
+.mb-3 input.form-control:focus {
+    border: none;
+}
+
+.mb-3 textarea {
+    border-radius: 14px;
+    border-color: #ffc107;
+    border-style: solid;
+}
+
+.mb-3 textarea:focus {
+    border: none;
+}
+
+.mb-3 .btn-info
+{
+    border-radius: 350px;
+    margin: 15px;
+}
+
+.mb-3 .btn-info:hover
+{
+    background-color:  #ffc107;
+    border-color: #ffc107;
+}
