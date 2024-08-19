@@ -2,12 +2,15 @@ import React from 'react';
 import "./NewArticlePage.css";
 import { useState } from 'react';
 import AddArticle from '../App' 
+import { useNavigate } from 'react-router-dom';
 
 const NewArticlePage = ({ addArticle }) => {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
-    const [category, setCategory] = useState()
+    const [category, setCategory] = useState("Personal")
+
+    const navigate = useNavigate()
 
     const newArticle = {
         "title": title,
@@ -23,10 +26,11 @@ const NewArticlePage = ({ addArticle }) => {
             console.log(title)
             console.log(content)
             console.log(category)
-            return
+            return;
         }
         console.log(newArticle)
         addArticle(newArticle)
+        navigate("/")
         
     }
 
@@ -44,8 +48,7 @@ const NewArticlePage = ({ addArticle }) => {
             style={{height: "40px"}} 
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            >
-                <option value="" disabled selected>Select Article Category</option>   
+            > 
                 <option value="Personal">Personal</option>
                 <option value="Cinema">Cinema</option>
                 <option value="Literature">Literature</option>

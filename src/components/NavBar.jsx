@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'; 
 import { FaPen } from "react-icons/fa6";
+import Filter from './Filter';
 
 
-const NavBar = () => {
+const NavBar = ({searchText, handleSearchText}) => {
   return (
     <nav id="desktop-nav" className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid d-flex justify-content-between align-items-center">
@@ -25,6 +26,8 @@ const NavBar = () => {
                         type="search"
                         placeholder="Search..."
                         aria-label="Search"
+                        value={searchText}
+                        onChange={(e) => handleSearchText(e.target.value)}
                     />
                     <button className="btn btn-outline-success d-none" type="submit"></button>  
                 </div> 
@@ -41,23 +44,6 @@ const NavBar = () => {
                             <FaPen className="me-2 fs-6" /> Add Article
                         </button>
                 </Link>
-                <button
-                    style={{ borderRadius: "14px"}}
-                    type="button" 
-                    className="btn btn-secondary dropdown-toggle" 
-                    data-bs-toggle="dropdown" 
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >
-                    Categories
-                </button>
-                <ul className="dropdown-menu">
-                    <Link className="dropdown-item" to="/">All Articles</Link>
-                    <Link className="dropdown-item" to="/">Personal</Link>
-                    <Link className="dropdown-item" to="/">Cinema</Link>
-                    <Link className="dropdown-item" to="/">Literature</Link>
-                    <Link className="dropdown-item" to="/">Sports</Link>
-                </ul>
             </div>
         </div>
     </nav>
