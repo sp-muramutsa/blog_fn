@@ -2,10 +2,10 @@ import React from 'react'
 import NavBar from "../components/NavBar"
 import ArticleCardContainer from "../components/ArticleCardContainer"
 
-const HomePage = () => {
+const HomePage = ({ articles, isLoading }) => {
   return (
     <>
-        <ArticleCardContainer />
+        <ArticleCardContainer articles={articles} isLoading={isLoading} />
     </>
   )
 }

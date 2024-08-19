@@ -1,20 +1,55 @@
 import React from 'react';
 import "./NewArticlePage.css";
+import { useState } from 'react';
+import AddArticle from '../App' 
 
-const NewArticlePage = () => {
+const NewArticlePage = ({ addArticle }) => {
+
+    const [title, setTitle] = useState("")
+    const [content, setContent] = useState("")
+    const [category, setCategory] = useState()
+
+    const newArticle = {
+        "title": title,
+        "content": content,
+        "category": category
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(!title || !content || !category)
+        {
+            console.log("Form missing data")
+            console.log(title)
+            console.log(content)
+            console.log(category)
+            return
+        }
+        console.log(newArticle)
+        addArticle(newArticle)
+        
+    }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <h5>New Article</h5> 
 
         <div className="mb-3">
             <label htmlFor="exampleFormControlInput1" className="form-label"> 
                 Category
             </label>   
-            <select className="form-select" aria-label="Default select example" style={{height: "40px"}}>
-                <option>Personal</option>
-                <option>Cinema</option>
-                <option>Literature</option>
-                <option>Sports</option>
+            <select
+            className="form-select" 
+            aria-label="Default select example" 
+            style={{height: "40px"}} 
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            >
+                <option value="" disabled selected>Select Article Category</option>   
+                <option value="Personal">Personal</option>
+                <option value="Cinema">Cinema</option>
+                <option value="Literature">Literature</option>
+                <option value="Sports">Sports</option>
             </select>
         </div>
 
@@ -27,6 +62,8 @@ const NewArticlePage = () => {
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="Article Title..."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             />
         </div> 
 
@@ -40,6 +77,8 @@ const NewArticlePage = () => {
                 rows={10}
                 cols={25}
                 placeholder="Article Content..."
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
             ></textarea> 
         </div>
 
